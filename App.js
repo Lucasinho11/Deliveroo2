@@ -1,47 +1,25 @@
 
 import React, { Component } from 'react';
-
-import {
-  ScrollView,
-  StyleSheet,
-  View,
-} from 'react-native';
-
-import Header from './Components/Header';
-import Categories from './Components/Categories';
-import Promotions from './Components/Promotions';
-import Betters from './Components/Betters';
-import Exclus from './Components/Exclus';
-import Footer from './Components/Footer';
-
+import Home from './Screens/Home';
+import Test from './Screens/Test';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
 
 class App extends Component {
-  
+  Stack = createStackNavigator();
+
   render(){
   return (
     
-    <View style={styles.container}>
-        <Header/>
-        <ScrollView>
-          <Categories/>
-          <Promotions/>
-          <View style={{paddingBottom: 10}}>
-            <Betters/>
-            <Exclus/>
-          </View>
-          <Footer/>
-        </ScrollView>
-    </View>
+    <NavigationContainer>
+      <this.Stack.Navigator screenOptions={{ header: () => null }}>
+        <this.Stack.Screen name="Home" component={Home}/>
+        <this.Stack.Screen name="Test" component={Test}/>
+      </this.Stack.Navigator>
+    </NavigationContainer>
+
   );
   }
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: "column",
-    backgroundColor: '#ecf0f1',
-  },
-});
 
 export default App ;

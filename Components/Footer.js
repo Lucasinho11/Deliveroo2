@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react';
 import { View, Share, Text, TouchableOpacity, StyleSheet, Button, Alert } from 'react-native'
+import { useNavigation } from '@react-navigation/native';
 
 class Footer extends Component {
     onShare = () => {
@@ -11,9 +12,10 @@ class Footer extends Component {
     };
   render() {
     return (
+      
       <View>
         <View style={{flexDirection: 'row', justifyContent: 'center', alignContent: 'center'}}>
-            <TouchableOpacity onPress={() => Alert.alert('🤡 Et bah ca marche pas 🤡')} style={{backgroundColor: '#00c2b3', textAlign: 'center', borderRadius: 10, width: 300}}>
+            <TouchableOpacity onPress={this.props.navigateButton} style={{backgroundColor: '#00c2b3', textAlign: 'center', borderRadius: 10, width: 300}}>
               <View style={styles.button}>
                 <Text style={{textAlign: 'center',paddingVertical: 10, color: 'white' }}>Afficher les 3260 restaurants</Text>
               </View>

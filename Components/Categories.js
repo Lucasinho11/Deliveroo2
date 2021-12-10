@@ -1,44 +1,72 @@
 
 import React, { Component } from 'react';
-import { View, ScrollView, Text, ImageBackground, StyleSheet } from 'react-native'
+import { View, ScrollView, Text, ImageBackground,TouchableOpacity, StyleSheet } from 'react-native'
 import { Card } from 'react-native-elements';
 import LottieView from 'lottie-react-native';
+import {
+  SharedElement,
+  createSharedElementStackNavigator,
+} from 'react-navigation-shared-element';
 
 class Categories extends Component {
   render() {
     return (
       <View>
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={{paddingBottom: 10, paddingLeft: 10}}>
+        
+          <TouchableOpacity onPress={this.props.navigateButton}>
+            <SharedElement>
+              <Card containerStyle={styles.cardCategories} onClick={this.props.navigateButton}>
+                <ImageBackground source={require('../assets/burger.jpg')} style={styles.imgCategories} resizeMode="cover">
+                  <Text style={styles.textCategories}>Burgers</Text>
+                </ImageBackground>
+              </Card>
+            </SharedElement>
+          </TouchableOpacity>
+        
+
+          <TouchableOpacity onPress={this.props.navigateButton}>
             <Card containerStyle={styles.cardCategories}>
-              <ImageBackground source={require('../assets/burger.jpg')} style={styles.imgCategories} resizeMode="cover">
-                <Text style={styles.textCategories}>Burgers</Text>
-              </ImageBackground>
-            </Card>
+                <ImageBackground source={require('../assets/pizza2.png')} style={styles.imgCategories} resizeMode="cover">
+                  <Text style={styles.textCategories}>Pizzas</Text>
+                </ImageBackground>
+              </Card>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={this.props.navigateButton}>
             <Card containerStyle={styles.cardCategories}>
-              <ImageBackground source={require('../assets/pizza2.png')} style={styles.imgCategories} resizeMode="cover">
-                <Text style={styles.textCategories}>Pizzas</Text>
-              </ImageBackground>
-            </Card>
+                <ImageBackground source={require('../assets/sushi.jpg')} style={styles.imgCategories} resizeMode="cover">
+                  <Text style={styles.textCategories}>Sushis</Text>
+                </ImageBackground>
+              </Card>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={this.props.navigateButton}>
             <Card containerStyle={styles.cardCategories}>
-              <ImageBackground source={require('../assets/sushi.jpg')} style={styles.imgCategories} resizeMode="cover">
-                <Text style={styles.textCategories}>Sushis</Text>
-              </ImageBackground>
-            </Card>
+                <ImageBackground source={require('../assets/gateau.jpg')} style={styles.imgCategories} resizeMode="cover">
+                  <Text style={styles.textCategories}>Gâteaux</Text>
+                </ImageBackground>
+              </Card>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={this.props.navigateButton}>
             <Card containerStyle={styles.cardCategories}>
-              <ImageBackground source={require('../assets/gateau.jpg')} style={styles.imgCategories} resizeMode="cover">
-                <Text style={styles.textCategories}>Gâteaux</Text>
-              </ImageBackground>
-            </Card>
+                <ImageBackground source={require('../assets/tacos.jpg')} style={styles.imgCategories} resizeMode="cover">
+                  <Text style={styles.textCategories}>Tacos</Text>
+                </ImageBackground>
+              </Card>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={this.props.navigateButton}>
             <Card containerStyle={styles.cardCategories}>
-              <ImageBackground source={require('../assets/tacos.jpg')} style={styles.imgCategories} resizeMode="cover">
-                <Text style={styles.textCategories}>Tacos</Text>
-              </ImageBackground>
-            </Card>
-            <Card containerStyle={styles.cardCategories}>
-              <ImageBackground source={require('../assets/sandwich.jpg')} style={styles.imgCategories} resizeMode="cover">
-                <Text style={styles.textCategories}>Sandwichs</Text>
-              </ImageBackground>
-            </Card>
+                <ImageBackground source={require('../assets/sandwich.jpg')} style={styles.imgCategories} resizeMode="cover">
+                  <Text style={styles.textCategories}>Sandwichs</Text>
+                </ImageBackground>
+              </Card>
+          </TouchableOpacity>
+            
+            
+            
+            
+            
             
           </ScrollView>
       </View>
